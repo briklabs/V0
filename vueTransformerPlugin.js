@@ -1,34 +1,27 @@
-var semver = require('semver');
-var vueNativeScripts = require("vue-native-scripts");
+// For React Native version 0.59 or later
+var upstreamTransformer = require("metro-react-native-babel-transformer");
 
-var reactNativeVersionString = require("react-native/package.json").version;
+// You will need to use different transformers for different React Native versions
+// However, versions older than v0.59 are no longer supported by Vue Native
 
-var reactNativeMinorVersion = semver(reactNativeVersionString).minor;
+// For React Native version 0.56 - 0.58
+// var upstreamTransformer = require("metro/src/reactNativeTransformer");
 
-if (reactNativeMinorVersion >= 59) {
-  upstreamTransformer = require("metro-react-native-babel-transformer");
-} else if (reactNativeMinorVersion >= 56) {
-  upstreamTransformer = require("metro/src/reactNativeTransformer");
-} else if (reactNativeMinorVersion >= 52) {
-  upstreamTransformer = require("metro/src/transformer");
-} else if (reactNativeMinorVersion >= 47) {
-  upstreamTransformer = require("metro-bundler/src/transformer");
-} else if (reactNativeMinorVersion === 46) {
-  upstreamTransformer = require("metro-bundler/build/transformer");
-} else {
-  // handle RN <= 0.45
-  var oldUpstreamTransformer = require("react-native/packager/transformer");
-  upstreamTransformer = {
-    transform({ src, filename, options }) {
-      return oldUpstreamTransformer.transform(src, filename, options);
-    }
-  };
-}
+// For React Native version 0.52 - 0.55
+// var upstreamTransformer = require("metro/src/transformer");
+
+// For React Native version 0.47 - 0.51
+// var upstreamTransformer = require("metro-bundler/src/transformer");
+
+// For React Native version 0.46
+// var upstreamTransformer = require("metro-bundler/build/transformer");
+
+var vueNaiveScripts = require("vue-native-scripts");
 var vueExtensions = ["vue"]; // <-- Add other extensions if needed.
 
 module.exports.transform = function({ src, filename, options }) {
   if (vueExtensions.some(ext => filename.endsWith("." + ext))) {
-    return vueNativeScripts.transform({ src, filename, options });
+    return vueNaiveScripts.transform({ src, filename, options });
   }
   return upstreamTransformer.transform({ src, filename, options });
 };
