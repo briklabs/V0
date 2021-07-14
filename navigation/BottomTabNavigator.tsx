@@ -12,7 +12,8 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import TabHomeScreen from '../screens/TabHomeScreen';
+import { BottomTabParamList, TabHomeParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -23,6 +24,13 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="TabOne"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      <BottomTab.Screen
+        name="TabHome"
+        component={TabHomeNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-home" color={color} />,
+        }}
+      />
       <BottomTab.Screen
         name="TabOne"
         component={TabOneNavigator}
@@ -74,5 +82,19 @@ function TabTwoNavigator() {
         options={{ headerTitle: 'Tab Two Title' }}
       />
     </TabTwoStack.Navigator>
+  );
+}
+
+const TabHomeStack = createStackNavigator<TabHomeParamList>();
+
+function TabHomeNavigator() {
+  return (
+    <TabHomeStack.Navigator>
+      <TabHomeStack.Screen
+        name="TabHomeScreen"
+        component={TabHomeScreen}
+        options={{ headerTitle: 'Home' }}
+      />
+    </TabHomeStack.Navigator>
   );
 }
