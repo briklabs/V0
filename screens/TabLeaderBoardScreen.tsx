@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { View, Text } from '../components/Themed';
 
-export default function TabTwoScreen() {
+export default function TabLeaderBoardScreen() {
   return (
     <View style={styles.container}>
       <Text>Coming soon</Text>
