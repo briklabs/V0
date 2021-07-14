@@ -26,6 +26,6 @@ export type TabLeaderBoardParamList = {
   TabLeaderBoardScreen: undefined;
 };
 
-export type TabHomeParamList = {
-  TabHomeScreen: undefined;
+export type TabLeaderBoardParamList = {
+  TabLeaderBoardScreen: undefined;
 };

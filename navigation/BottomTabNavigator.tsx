@@ -99,16 +99,16 @@ function TabLeaderBoardNavigator() {
   );
 }
 
-const TabHomeStack = createStackNavigator<TabHomeParamList>();
+const TabLeaderBoardStack = createStackNavigator<TabLeaderBoardParamList>();
 
-function TabHomeNavigator() {
+function TabLeaderBoardNavigator() {
   return (
-    <TabHomeStack.Navigator>
-      <TabHomeStack.Screen
-        name="TabHomeScreen"
-        component={TabHomeScreen}
-        options={{ headerTitle: 'Home' }}
+    <TabLeaderBoardStack.Navigator>
+      <TabLeaderBoardStack.Screen
+        name="TabLeaderBoardScreen"
+        component={TabLeaderBoardScreen}
+        options={{ headerTitle: 'Leader Board' }}
       />
-    </TabHomeStack.Navigator>
+    </TabLeaderBoardStack.Navigator>
   );
 }
