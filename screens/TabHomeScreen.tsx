@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { Text, View } from '../components/Themed';
 
-export default function TabOneScreen() {
+export default function TabHomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.cardContainer}>
