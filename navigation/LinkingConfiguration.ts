@@ -19,12 +19,12 @@ export default {
           },
           TabSessions: {
             screens: {
-              TabOneScreen: 'sessions',
+              TabSessionsScreen: 'Sessions',
             },
           },
           TabLeaderBoard: {
             screens: {
-              TabTwoScreen: 'leader-board',
+              TabLeaderBoardScreen: 'leader-board',
             },
           },
         },
