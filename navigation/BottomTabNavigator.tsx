@@ -10,10 +10,10 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
 import TabHomeScreen from '../screens/TabHomeScreen';
-import { BottomTabParamList, TabHomeParamList, TabOneParamList, TabTwoParamList } from '../types';
+import TabSessionsScreen from '../screens/TabSessionsScreen';
+import TabLeaderBoardScreen from '../screens/TabLeaderBoardScreen';
+import { BottomTabParamList, TabHomeParamList, TabSessionsParamList, TabLeaderBoardParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -22,27 +22,27 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="TabHome"
+        name="Home"
         component={TabHomeNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-home" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneNavigator}
+        name="Sessions"
+        component={TabSessionsNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-stopwatch" color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoNavigator}
+        name="Leader Board"
+        component={TabLeaderBoardNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-list" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -57,34 +57,6 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
-const TabOneStack = createStackNavigator<TabOneParamList>();
-
-function TabOneNavigator() {
-  return (
-    <TabOneStack.Navigator>
-      <TabOneStack.Screen
-        name="TabOneScreen"
-        component={TabOneScreen}
-        options={{ headerTitle: 'Tab One Title' }}
-      />
-    </TabOneStack.Navigator>
-  );
-}
-
-const TabTwoStack = createStackNavigator<TabTwoParamList>();
-
-function TabTwoNavigator() {
-  return (
-    <TabTwoStack.Navigator>
-      <TabTwoStack.Screen
-        name="TabTwoScreen"
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Tab Two Title' }}
-      />
-    </TabTwoStack.Navigator>
-  );
-}
-
 const TabHomeStack = createStackNavigator<TabHomeParamList>();
 
 function TabHomeNavigator() {
@@ -96,5 +68,33 @@ function TabHomeNavigator() {
         options={{ headerTitle: 'Home' }}
       />
     </TabHomeStack.Navigator>
+  );
+}
+
+const TabSessionsStack = createStackNavigator<TabSessionsParamList>();
+
+function TabSessionsNavigator() {
+  return (
+    <TabSessionsStack.Navigator>
+      <TabSessionsStack.Screen
+        name="TabSessionsScreen"
+        component={TabSessionsScreen}
+        options={{ headerTitle: 'Sessions' }}
+      />
+    </TabSessionsStack.Navigator>
+  );
+}
+
+const TabLeaderBoardStack = createStackNavigator<TabLeaderBoardParamList>();
+
+function TabLeaderBoardNavigator() {
+  return (
+    <TabLeaderBoardStack.Navigator>
+      <TabLeaderBoardStack.Screen
+        name="TabLeaderBoardScreen"
+        component={TabLeaderBoardScreen}
+        options={{ headerTitle: 'Leader Board' }}
+      />
+    </TabLeaderBoardStack.Navigator>
   );
 }
