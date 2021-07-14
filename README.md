@@ -1,8 +1,5 @@
-# V0
-V0 app
+## V0 Reactive Native App
+This is an Expo boilerplate React Native app. This will serve as prototype for the V0 project.
 
-Follow these instructions: https://vue-native.io/docs/installation.html
-
-NOTE
-The app appears to build locally with Node v14.
-`nvm use v14`
+# Instructions
+See https://docs.expo.io/
