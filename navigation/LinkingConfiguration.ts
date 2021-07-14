@@ -17,14 +17,14 @@ export default {
               TabHomeScreen: 'home',
             },
           },
-          TabOne: {
+          TabSessions: {
             screens: {
-              TabOneScreen: 'one',
+              TabOneScreen: 'sessions',
             },
           },
-          TabTwo: {
+          TabLeaderBoard: {
             screens: {
-              TabTwoScreen: 'two',
+              TabTwoScreen: 'leader-board',
             },
           },
         },
