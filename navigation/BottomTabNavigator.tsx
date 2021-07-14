@@ -98,3 +98,17 @@ function TabLeaderBoardNavigator() {
     </TabLeaderBoardStack.Navigator>
   );
 }
+
+const TabHomeStack = createStackNavigator<TabHomeParamList>();
+
+function TabHomeNavigator() {
+  return (
+    <TabHomeStack.Navigator>
+      <TabHomeStack.Screen
+        name="TabHomeScreen"
+        component={TabHomeScreen}
+        options={{ headerTitle: 'Home' }}
+      />
+    </TabHomeStack.Navigator>
+  );
+}

@@ -25,3 +25,7 @@ export type TabSessionsParamList = {
 export type TabLeaderBoardParamList = {
   TabLeaderBoardScreen: undefined;
 };
+
+export type TabHomeParamList = {
+  TabHomeScreen: undefined;
+};
