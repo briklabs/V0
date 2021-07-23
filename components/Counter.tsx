@@ -50,8 +50,11 @@ const styles = StyleSheet.create({
 class Counter extends React.Component {
   state = { count: 0 };
 
-  setCount = () => this.setState(
+  setCountPlus = () => this.setState(
     prevState => ({ ...prevState, count: this.state.count + 1 })
+  )
+  setCountMinus = () => this.setState(
+    prevState => ({ ...prevState, count: this.state.count - 1 })
   )
 
   render() {
@@ -59,13 +62,13 @@ class Counter extends React.Component {
     return (
       <View style={[styles.bg]}>
         <View style={styles.container}>
-        <TouchableOpacity style={styles.touchable} onPress={this.setCount}>
+        <TouchableOpacity style={styles.touchable} onPress={this.setCountMinus}>
             <Text style={styles.buttonText}>-</Text>
           </TouchableOpacity>
           <View style={styles.count}>
           <Text style={styles.countText}>{count}</Text>
           </View>
-          <TouchableOpacity style={styles.touchable} onPress={this.setCount}>
+          <TouchableOpacity style={styles.touchable} onPress={this.setCountPlus}>
             <Text style={styles.buttonText}>+</Text>
           </TouchableOpacity>
         </View>
