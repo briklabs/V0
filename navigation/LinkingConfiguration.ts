@@ -27,6 +27,11 @@ export default {
               TabLeaderBoardScreen: 'leader-board',
             },
           },
+          TabProfile: {
+            screens: {
+              TabProfileScreen: 'profile',
+            },
+          },
         },
       },
       NotFound: '*',

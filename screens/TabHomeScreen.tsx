@@ -26,6 +26,12 @@ export default function TabHomeScreen({ navigation: { navigate } }: StackScreenP
           <Text style={styles.linkText}>View Leader Board</Text>
         </TouchableOpacity>
       </View>
+      <View style={styles.cardContainer}>
+        <Text style={styles.cardTitle}>Profile</Text>
+        <TouchableOpacity onPress={() => navigate('Profile')} style={styles.link}>
+          <Text style={styles.linkText}>View Profile</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

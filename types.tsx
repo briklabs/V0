@@ -12,6 +12,7 @@ export type BottomTabParamList = {
   Home: undefined;
   Sessions: undefined;
   'Leader Board': undefined;
+  Profile: undefined
 };
 
 export type TabHomeParamList = {
@@ -24,4 +25,8 @@ export type TabSessionsParamList = {
 
 export type TabLeaderBoardParamList = {
   TabLeaderBoardScreen: undefined;
+};
+
+export type TabProfileParamList = {
+  TabProfileScreen: undefined;
 };

@@ -13,7 +13,8 @@ import useColorScheme from '../hooks/useColorScheme';
 import TabHomeScreen from '../screens/TabHomeScreen';
 import TabSessionsScreen from '../screens/TabSessionsScreen';
 import TabLeaderBoardScreen from '../screens/TabLeaderBoardScreen';
-import { BottomTabParamList, TabHomeParamList, TabSessionsParamList, TabLeaderBoardParamList } from '../types';
+import TabProfileScreen from '../screens/TabProfileScreen';
+import { BottomTabParamList, TabHomeParamList, TabSessionsParamList, TabLeaderBoardParamList, TabProfileParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -43,6 +44,13 @@ export default function BottomTabNavigator() {
         component={TabLeaderBoardNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-list" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Profile"
+        component={TabProfileNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-person" color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -96,5 +104,19 @@ function TabLeaderBoardNavigator() {
         options={{ headerTitle: 'Leader Board' }}
       />
     </TabLeaderBoardStack.Navigator>
+  );
+}
+
+const TabProfileStack = createStackNavigator<TabProfileParamList>();
+
+function TabProfileNavigator() {
+  return (
+    <TabProfileStack.Navigator>
+      <TabProfileStack.Screen
+        name="TabProfileScreen"
+        component={TabProfileScreen}
+        options={{ headerTitle: 'Profile' }}
+      />
+    </TabProfileStack.Navigator>
   );
 }
